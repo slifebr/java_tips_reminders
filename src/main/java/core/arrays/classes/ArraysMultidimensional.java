@@ -59,8 +59,8 @@ public class ArraysMultidimensional {
 
 				System.out.println("Consultar compromisso");
 
-				if (agenda[mes][dia][hora] != null) {
-					System.out.println("Compromisso para o dia: " + mes + " mes: " + dia + " hora: " + hora + " : "
+				if (agenda[--mes][--dia][hora] != null) {
+					System.out.println("Compromisso para o dia: " + ++mes + " mes: " + ++dia + " hora: " + hora + " : "
 							+ agenda[--mes][--dia][hora]);
 					System.out.println("====================================================");
 				} else {
