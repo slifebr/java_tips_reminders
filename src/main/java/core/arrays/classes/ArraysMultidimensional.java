@@ -56,13 +56,12 @@ public class ArraysMultidimensional {
 				mes = informeData("mês", 1, 12);
 				dia = informeData("dia", 1, 31);
 				hora = informeData("hora", 0, 23);
-				// informar compromisso
+
 				System.out.println("Consultar compromisso");
-				mes--;
-				dia--;
+
 				if (agenda[mes][dia][hora] != null) {
 					System.out.println("Compromisso para o dia: " + mes + " mes: " + dia + " hora: " + hora + " : "
-							+ agenda[mes][dia][hora]);
+							+ agenda[--mes][--dia][hora]);
 					System.out.println("====================================================");
 				} else {
 					System.out.println("Sem compromisso para esta data");
