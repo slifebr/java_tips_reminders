@@ -12,10 +12,10 @@ public class ArraysMultidimensional {
 	private byte hora = 0;
 	private String[][][] agenda = new String[12][31][24];
 
-	private Scanner scan;
+	// private Scanner scan;
 
 	public void informarCompromisso() {
-		scan = new Scanner(System.in);
+		Scanner scan = new Scanner(System.in);
 		boolean fim = false;
 		int opcao = 0;
 		System.out.println("Informe 1 para novo agendamento");
@@ -25,9 +25,9 @@ public class ArraysMultidimensional {
 			System.out.println();
 			opcao = scan.nextInt();
 			if (opcao == 1) {
-				mes = informeData("mês", 1, 12);
-				dia = informeData("dia", 1, 31);
-				hora = informeData("hora", 0, 23);
+				mes = informeData(scan, "mês", 1, 12);
+				dia = informeData(scan, "dia", 1, 31);
+				hora = informeData(scan, "hora", 0, 23);
 				// informar compromisso
 				System.out.println("Informe compromisso");
 				mes--;
@@ -35,7 +35,6 @@ public class ArraysMultidimensional {
 				agenda[mes][dia][hora] = scan.next();
 			} else if (opcao == 0) {
 				fim = true;
-				scan.close();
 			} else {
 				System.out.println("Opção inválida. Informe novamente.");
 			}
@@ -43,7 +42,8 @@ public class ArraysMultidimensional {
 	}
 
 	public void mostrarCompromisso() {
-		scan = new Scanner(System.in);
+		Scanner scan = new Scanner(System.in);
+
 		boolean fim = false;
 		int opcao = 0;
 		System.out.println("Informe 1 para consultar agendamento");
@@ -53,13 +53,14 @@ public class ArraysMultidimensional {
 			System.out.println();
 			opcao = scan.nextInt();
 			if (opcao == 1) {
-				mes = informeData("mês", 1, 12);
-				dia = informeData("dia", 1, 31);
-				hora = informeData("hora", 0, 23);
+				mes = informeData(scan, "mês", 1, 12);
+				dia = informeData(scan, "dia", 1, 31);
+				hora = informeData(scan, "hora", 0, 23);
 
 				System.out.println("Consultar compromisso");
 
 				if (agenda[--mes][--dia][hora] != null) {
+					System.out.println("====================================================");
 					System.out.println("Compromisso para o dia: " + ++mes + " mes: " + ++dia + " hora: " + hora + " : "
 							+ agenda[--mes][--dia][hora]);
 					System.out.println("====================================================");
@@ -68,14 +69,14 @@ public class ArraysMultidimensional {
 				}
 			} else if (opcao == 0) {
 				fim = true;
-				scan.close();
 			} else {
 				System.out.println("Opção inválida. Informe novamente.");
 			}
 		}
+
 	}
 
-	private byte informeData(String periodo, int faixaInicio, int faixaFinal) {
+	private byte informeData(Scanner scan, String periodo, int faixaInicio, int faixaFinal) {
 
 		byte retorno = 0;
 		boolean sair = false;
