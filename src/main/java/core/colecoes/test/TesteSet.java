@@ -13,19 +13,24 @@ public class TesteSet {
 	 * https://www.javacodegeeks.com/2011/04/simple-big-o-notation-post.html Lists
 	 * and Sets:
 	 * 
-	 * Structure get add remove contains ArrayList O(1) O(1) O(n) O(n) LinkedList
-	 * O(n) O(1) O(1) O(n) HashSet O(1) O(1) O(1) O(1) LinkedHashSet O(1) O(1) O(1)
-	 * O(1) TreeSet O(log n) O(log n) O(log n) O(log n)
+	 * Structure 		get 	 add 		remove 		contains 
+	 * ArrayList 		O(1) 	 O(1) 		O(n) 		O(n) 
+	 * LinkedList		O(n) 	 O(1) 		O(1) 		O(n) 
+	 * HashSet 			O(1) 	 O(1) 		O(1) 		O(1) 
+	 * LinkedHashSet 	O(1) 	 O(1) 		O(1)		O(1) 
+	 * TreeSet 			O(log n) O(log n) 	O(log n) 	O(log n)
 	 * 
-	 * Maps: Structure get put remove containsKey HashMap O(1) O(1) O(1) O(1)
-	 * LinkedHashMap O(1) O(1) O(1) O(1) TreeMap O(log n) O(log n) O(log n) O(log n)
+	 * Maps: Structure 	get 		put 		remove 		containsKey 
+	 * HashMap 			O(1)	 	O(1) 		O(1) 		O(1)
+	 * LinkedHashMap 	O(1) 		O(1) 		O(1) 		O(1) 
+	 * TreeMap 			O(log n) 	O(log n) 	O(log n) 	O(log n)
 	 * Better is the enemy of good!
 	 */
 
 	/*
-	 * Set - HashSet - NAO permite elementos duplicados Set - HashSet - NAO e
-	 * indexado - portanto nao tem o metodo get como List Set - HashSet - NAO possui
-	 * ordem - nao existe certeza que serao mostrados conforme entrada do elemento
+	 * Set - HashSet - NAO permite elementos duplicados 
+	 * Set - HashSet - NAO e indexado - portanto nao tem o metodo get como List 
+	 * Set - HashSet - NAO possui ordem - nao existe certeza que serao mostrados conforme entrada do elemento
 	 * 
 	 * Set - LinkedHashSet - mantem a ordem de inclusao
 	 * 
