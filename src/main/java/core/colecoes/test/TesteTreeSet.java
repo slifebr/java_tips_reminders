@@ -73,6 +73,8 @@ public class TesteTreeSet {
 		// higher - > maior
 		// ceiling - >= maior ou igaul
 		// descendingSet - ordem inversa
+		// pollFirst   - pega e remove o primeiro objeto
+		// pollLast    - pega e remove o ultimo objeto
 		Celular celRefer = cel3;
 		System.out.println("Refer.:" + celRefer);
 		System.out.println();
@@ -82,7 +84,17 @@ public class TesteTreeSet {
 		System.out.println("ceiling:" + celulares.ceiling(celRefer));
 		System.out.println();
 		System.out.println(" ordem inversa");
+		
 		celulares.descendingSet().forEach(System.out::println);
+		System.out.println();
+		System.out.println(" pega o primeiro e remove");
+	    System.out.println(celulares.pollFirst());
+	    System.out.println();
+	    System.out.println(" pega o ultimo e remove");
+	    System.out.println(celulares.pollFirst());
+	    System.out.println();
+	    
+	    celulares.forEach(System.out::println);
 
 	}
 
