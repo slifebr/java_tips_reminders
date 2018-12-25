@@ -63,7 +63,7 @@ public class TesteArrayListCelular {
 
 		System.out.println();
 		System.out.println(
-				"======== Classificando por IMEI usando Collections e Classe anonima Comparator===========");
+				"======== Classificando por IMEI usando Collections e Anonymous Inner class Comparator ===========");
 		Collections.sort(celulares, new Comparator<Celular>() {
 
 			@Override
