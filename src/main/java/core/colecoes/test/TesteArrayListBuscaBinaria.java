@@ -7,7 +7,7 @@ import java.util.List;
 
 import core.colecoes.classes.Celular;
 
-class CelularPorNome implements Comparator<Celular> {
+class CelularPorNomeComparator implements Comparator<Celular> {
 
 	@Override
 	public int compare(Celular o1, Celular o2) {
@@ -78,13 +78,13 @@ public class TesteArrayListBuscaBinaria {
 		System.out.println("==========================================================");
 		System.out.println("binarySearch para uma lista de celulares ordenado por nome");
 		System.out.println("==========================================================");
-		Collections.sort(celulares, new CelularPorNome());
+		Collections.sort(celulares, new CelularPorNomeComparator());
 		System.out.println(Collections.binarySearch(celulares, cel5));
 		int indice = Collections.binarySearch(celulares, cel5);
 		// sera classificado pelo Comparator
 
 		celulares.forEach(c -> {
-			System.out.println(c + " indice atual:" + Collections.binarySearch(celulares, c, new CelularPorNome()));
+			System.out.println(c + " indice atual:" + Collections.binarySearch(celulares, c, new CelularPorNomeComparator()));
 		});
 		// System.out.println(cel5 + " indice de inclusao: " +
 		// Collections.binarySearch(celulares, cel5,new CelularPorNome()));
@@ -95,9 +95,9 @@ public class TesteArrayListBuscaBinaria {
 			System.out.println("==========================================================");
 			System.out.println("binarySearch apos inclusao de novo celular");
 			celulares.add(indice * -1 - 1, cel5);
-			Collections.sort(celulares, new CelularPorNome());
+			Collections.sort(celulares, new CelularPorNomeComparator());
 			celulares.forEach(c -> {
-				System.out.println(c + " indice atual:" + Collections.binarySearch(celulares, c, new CelularPorNome()));
+				System.out.println(c + " indice atual:" + Collections.binarySearch(celulares, c, new CelularPorNomeComparator()));
 			});
 		}
 		//Collections.sort(celulares); // modifica totalmente os indices conforme classificacao
