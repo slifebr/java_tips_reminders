@@ -2,12 +2,12 @@ package core.estrutura.dados.vetores;
 
 import java.util.Arrays;
 
-public class Vetor {
+public class AlunoVetor {
 
 	private Aluno[] alunos;
     private int tamanho;
     
-	public Vetor(int tamanhoVetor) {
+	public AlunoVetor(int tamanhoVetor) {
 		this.alunos = new Aluno[tamanhoVetor];
 	}
 	
