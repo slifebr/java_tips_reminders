@@ -1,7 +1,6 @@
 package core.estrutura.dados.vetores;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 public class NumeroVetor {
 
@@ -20,34 +19,67 @@ public class NumeroVetor {
 		this.tamanho++;
 	}
 
-	public void adicionaEntreMaiorMenorComFor(Integer numero) {
-		sort();
+	public void adicionaEntreMaiorMenorComForReversivo(Integer numero) {
+
 		if (this.numeros.length == this.tamanho) {
 			expandeVetor();
 		}
+
 		Integer[] arrayAux = new Integer[numeros.length + 1];
-		for (int i = 0; i < tamanho; i++) {
-			if (numero >= 0 && this.numeros[i] > numero) {
-				arrayAux[i] = numero;
-				arrayAux[i + 1] = numeros[i];
-				numero = -1;
-			} else if (numero >= 0 && (this.numeros[i] < numero && tamanho == i + 1)) {
-				arrayAux[i + 1] = numero;
-				arrayAux[i] = numeros[i];
-				numero = -1;
-			} else if (numero >= 0 && this.numeros[i] < numero && this.numeros[i + 1] > numero) {
-				arrayAux[i] = numeros[i];
-				arrayAux[i + 1] = numero;
-				numero = -1;
+
+		sort();
+
+		for (int i = this.tamanho - 1; i >= 0; i--) {
+
+			if (numero >= 0 && this.numeros[i] >= numero) {
+				arrayAux[i + 1] = this.numeros[i];
+				if (i == 0)
+					arrayAux[i] = numero;
 			} else if (numero >= 0) {
-				arrayAux[i] = numeros[i];
-			} else if (numero < 0) {
-				arrayAux[i + 1] = numeros[i];
+				arrayAux[i + 1] = numero;
+				arrayAux[i] = this.numeros[i];
+				numero = -1; // determina que o numero foi inserido
+			} else {
+				arrayAux[i] = this.numeros[i];
 			}
+
 		}
-		numeros = arrayAux;
+		this.numeros = arrayAux;
 		this.tamanho++;
 	}
+
+	public void adicionaEntreMaiorMenorComFor(Integer numero) {
+
+		if (this.numeros.length == this.tamanho) {
+			expandeVetor();
+		}
+
+		Integer[] arrayAux = new Integer[numeros.length + 1];
+
+		sort();
+
+		for (int i = 0; i <= this.tamanho - 1; i++) {
+
+			if (numero >= 0 && this.numeros[i] <= numero) {
+				arrayAux[i] = this.numeros[i];
+				if (i == tamanho-1) {
+					arrayAux[i+1] = numero;
+					numero = -1;
+				}
+			} else if (numero >= 0) {
+				arrayAux[i] = numero;
+				arrayAux[i+1]  = this.numeros[i];
+				numero = -1; // determina que o numero foi inserido
+			} else {
+				arrayAux[i+1] = this.numeros[i];
+			}
+
+		}
+		this.numeros = arrayAux;
+		this.tamanho++;
+	}
+
+	
 
 	public void adicionaEntreMaiorMenor(Integer numero) {
 		sort();
